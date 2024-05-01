@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +16,11 @@ Route::post('/store', [UserController::class, 'storePengaduan'])->name('pekat.st
 Route::get('/laporan/{siapa?}', [UserController::class, 'laporan'])->name('pekat.laporan');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('pekat.logout');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class,'formLogin'])->name('admin.formLogin');
+    Route::get('/Login', [AdminController::class,'login'])->name('admin.login');
+    Route::get('/logout', [AdminController::class,'logout'])->name('admin.logout');
+
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index');
+});

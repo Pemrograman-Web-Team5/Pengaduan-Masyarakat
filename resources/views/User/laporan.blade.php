@@ -135,7 +135,7 @@
                         @endif
                     </div>
                     <div>
-                        <p>{{ $v->tgl_pengaduan->format('d M, h:i') }}</p>
+                    <p>{{ $v->tgl_pengaduan instanceof \DateTime ? $v->tgl_pengaduan->format('d M, h:i') : $v->tgl_pengaduan }}</p>
                     </div>
                 </div>
             </div>
