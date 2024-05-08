@@ -15,20 +15,20 @@ class AdminController extends Controller
     }
 
     public function login(Request $request){
-        $username = Petugas::where('username',$request->username)->first();
-
+        $username = Petugas::where('username', $request->username)->first();
+    
         if(!$username){
             return redirect()->back()->with(['pesan' => 'Username tidak terdaftar!']);
         }
-
-        $password = Hash::check($request->password, $username->password);
-
-        if(!$password){
+    
+        $passwordMatch = Hash::check($request->password, $username->password);
+    
+        if(!$passwordMatch){
             return redirect()->back()->with(['pesan'=> 'Password tidak sesuai!']);
         }
-
-        $auth = Auth::guard('admin')->attempt(['username' => $request->$username,'password'=> $request->$password]);
-
+    
+        $auth = Auth::guard('admin')->attempt(['username' => $request->username,'password'=> $request->password]);
+    
         if($auth){
             return redirect()->route('dashboard.index');
         }else{
