@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\Admin\PengaduanController;
+use App\Http\Controllers\Admin\PetugasController;
+use App\Http\Controllers\Admin\MasyarakatController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +29,9 @@ Route::prefix('admin')->group(function () {
     //Route::get('/admin/Login', [AdminController::class,'formLogin'])->name('admin.formLogin');
     //Route::post('/admin/Login', [AdminController::class,'login'])->name('admin.login');
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index');
+
+    Route::resource('pengaduan', PengaduanController::class);
+    Route::resource('petugas', PetugasController::class);
+    Route::resource('masyarakat', MasyarakatController::class);
+    Route::get('laporan', [LaporanController::class,'index'])->name('laporan.index');
 });
