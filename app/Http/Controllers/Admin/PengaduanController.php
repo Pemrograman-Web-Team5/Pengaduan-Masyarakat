@@ -17,6 +17,8 @@ class PengaduanController extends Controller
     public function show($id_pengaduan){
         $pengaduan = Pengaduan::where('id_pengaduan', $id_pengaduan)->first();
 
-        return view('Admin.Pengaduan.show', ['pengaduan' => $pengaduan]);
+        $tanggapan = Tanggapan::where('id_pengaduan', $id_pengaduan)->first();
+
+        return view('Admin.Pengaduan.show', ['pengaduan' => $pengaduan, 'tanggapan' => $tanggapan]);
     }
 }
