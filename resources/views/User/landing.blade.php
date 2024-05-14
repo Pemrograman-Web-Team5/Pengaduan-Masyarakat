@@ -13,8 +13,8 @@
         <div class="container">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <h4 class="semi-bold mb-0 text-white">PEKAT</h4>
-                    <p class="italic mt-0 text-white">Pengaduan Masyarakat</p>
+                    <h4 class="semi-bold mb-0 text-white">SIAKAT</h4>
+                    <p class="italic mt-0 text-white">Sistem Informasi Pengaduan Masyarakat</p>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@
 <div class="mt-5">
     <hr>
     <div class="text-center">
-        <p class="italic text-secondary">© 2021 Ihsanfrr • All rights reserved</p>
+        <p class="italic text-secondary">© 2021 Team 5 • All rights reserved</p>
     </div>
 </div>
 {{-- Modal --}}

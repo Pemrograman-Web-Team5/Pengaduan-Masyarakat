@@ -22,8 +22,8 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 class="mb-0">PEKAT</h3>
-                <p class="text-white mb-0">Pengaduan Masyarakat</p>
+                <h3 class="mb-0">SIAKAT</h3>
+                <p class="text-white mb-0">Sistem Informasi Pengaduan Masyarakat</p>
             </div>
 
             <ul class="list-unstyled components">                
