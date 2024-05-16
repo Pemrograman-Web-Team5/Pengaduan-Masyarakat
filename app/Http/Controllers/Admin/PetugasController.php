@@ -56,7 +56,7 @@ class PetugasController extends Controller
     
     public function edit($id_petugas){
 
-        $petugas = Petugas::where('id_petugas', $id_petugas);
+        $petugas = Petugas::where('id_petugas', $id_petugas)->first();
 
         return view('Admin.Petugas.edit', ['petugas' => $petugas]);
     }

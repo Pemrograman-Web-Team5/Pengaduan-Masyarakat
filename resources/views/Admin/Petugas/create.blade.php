@@ -58,22 +58,23 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success" style="width: 100%">SIMPAN</button>
+                            <button type="submit" class="btn btn-warning" style="width: 100%">SIMPAN</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-lh-6 col-12">
                 @if (Session::has('username'))
-                <div class="alert alert-danger">
-                    {{Session::get('username')}}
-                </div>
+                    <div class="alert alert-danger">
+                        {{ Session::get('username') }}
+                    </div>
                 @endif
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
-                    <div class="alert alert-danger">
-                        {{ $error }}
-                    </div>
+                        <div class="alert alert-danger">
+                            {{ $error }}
+                        </div>
+                    @endforeach
                 @endif
             </div>
         </div>
