@@ -7,11 +7,11 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <style>
         body {
-            background: #6a70fc;
+            background: #d30000;
         }
 
         .btn-purple {
-            background: #6a70fc;
+            background: #d30000;
             width: 100%;
             color: #fff;
         }

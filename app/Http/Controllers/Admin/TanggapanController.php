@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengaduan;
+use App\Models\Tanggapan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TanggapanController extends Controller
 {
@@ -13,8 +16,8 @@ class TanggapanController extends Controller
 
         $tanggapan = Tanggapan::where('id_pengaduan', $request->id_pengaduan)->first();
 
-        if(condition){
-            $pengaudan->update(['status' => $request->status]);
+        if($tanggapan){
+            $pengaduan->update(['status' => $request->status]);
 
             $tanggapan->update([
                 'tgl_tanggapan' =>date('Y-m-d'),
@@ -24,7 +27,7 @@ class TanggapanController extends Controller
 
             return redirect()->route('pengaduan.show', ['pengaduan' => $pengaduan, 'tanggapan' => $tanggapan]);
         } else {
-            $pengaudan->update(['status' => $request->status]);
+            $pengaduan->update(['status' => $request->status]);
 
             $tanggapan = Tanggapan::create([
                 'id_pengaduan' => $request->id_pengaduan,

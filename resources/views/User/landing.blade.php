@@ -100,7 +100,7 @@
 <div class="mt-5">
     <hr>
     <div class="text-center">
-        <p class="italic text-secondary">© 2021 Team 5 • All rights reserved</p>
+        <p class="italic text-secondary">© 2024 Team 5</p>
     </div>
 </div>
 {{-- Modal --}}

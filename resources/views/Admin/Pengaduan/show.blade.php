@@ -14,9 +14,9 @@
             color: #6c757d;
         }
 
-        .btn-purple {
-            background: #6a70fc;
-            border: 1px solid #6a70fc;
+        .btn-warning {
+            background: #d30000;
+            border: 1px solid #d30000;
             color: #fff;
             width: 100%;
         }
@@ -89,13 +89,13 @@
                     <div class="card-body">
                         <form action="{{ route('tanggapan.createOrUpdate')}}" method="POST">
                             @csrf
-                            <input type="hidden" name="id_pengaduan" value="">
+                            <input type="hidden" name="id_pengaduan" value="{{ $pengaduan->id_pengaduan }}">
                             <div class="form-group">
                                 <label for="status">Status</label>
-                                 <di class="input-grou mb-3p">
+                                 <div class="input-grou mb-3p">
                                     <select name="status" id="status" class="custom-select">
                                         @if ($pengaduan-> status = '0')
-                                            <option  selected value="a ">Pending</option>
+                                            <option selected value="a ">Pending</option>
                                             <option value="proses">Proses</option>
                                             <option value="selesai">Selesai</option>
                                         @elseif ($pengaduan->status = 'proses')
@@ -114,12 +114,13 @@
                                 <label for="tanggapan">Tanggapan</label>
                                 <textarea name="tanggapan" id="tanggapan" rows="4" class="form-control" placeholder="Belum ada tanggapan"> {{ $tanggapan -> tanggapan ?? ''}} </textarea>
                             </div>
-                            <button type="submit" class="btn btn-purple">KIRIM</button>
+                            <button type="submit" class="btn btn-warning">KIRIM</button>
                         </form>
-                        aif (Session::has('status'))
+                        @if (Session::has('status'))
                         <div class="alert alert-success mt-2">
                             {{Session :: get('status')}}
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

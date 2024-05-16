@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Petugas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class PetugasController extends Controller
 {
@@ -36,7 +37,7 @@ class PetugasController extends Controller
             return redirect()->back()->withErrors($validate);
         }
 
-        $username = Petugas::where('username', $data[username])->first();
+        $username = Petugas::where('username', $data['username'])->first();
 
         if ($username) {
             return redirect()->back()->with(['username' => 'Username sudah digunakan!']);
