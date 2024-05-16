@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
     @endsection
 
-    @section('header', 'Data Pengaduan')
+    @section('header', 'Data Petugas')
 
     @section('content')
         <a href="{{ route('petugas.create')}}" class="btn btn-warning mb-2">Tambah Petugas</a>

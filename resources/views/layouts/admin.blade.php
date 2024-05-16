@@ -42,19 +42,19 @@
 
             <ul class="list-unstyled components">                
                 <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a style="margin-left:10px;" href="{{ route('dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="{{ Request::is('admin/pengaduan') ? 'active' : '' }}">
-                    <a href="{{ route('pengaduan.index') }}">Pengaduan</a>
+                    <a style="margin-left:10px;" href="{{ route('pengaduan.index') }}">Pengaduan</a>
                 </li>
                 <li class="{{ Request::is('admin/petugas') ? 'active' : '' }}">
-                    <a href="{{ route('petugas.index') }}">Petugas</a>
+                    <a style="margin-left:10px;" href="{{ route('petugas.index') }}">Petugas</a>
                 </li>
                 <li class="{{ Request::is('admin/masyarakat') ? 'active' : '' }}">
-                    <a href="{{ route('masyarakat.index') }}">Masyarakat</a>
+                    <a style="margin-left:10px;" href="{{ route('masyarakat.index') }}">Masyarakat</a>
                 </li>
                 <li class="{{ Request::is('admin/laporan') ? 'active' : '' }}">
-                    <a href="{{ route('laporan.index') }}">Laporan</a>
+                    <a style="margin-left:10px;" href="{{ route('laporan.index') }}">Laporan</a>
                 </li>
             </ul>
         </nav>
