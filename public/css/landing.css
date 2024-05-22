@@ -224,6 +224,10 @@ body {
     color: #fff;
     width: 100%;
 }
+.row .col .content .btn-custom:hover {
+    background: #ffc107;
+    color: #fff;
+}
 
 .pengaduan .bg-purple {
     background: #d30000;

@@ -13,6 +13,15 @@
         .text-grey:hover{
             color: #6c757d;
         }
+        .btn-custom{
+            background: #d30000;
+            color: #fff;
+            width: 100%;
+        }
+        .btn-custom:hover{
+            background: #ffc107;
+            color: #fff;
+        }
     </style>
 @endsection
 
@@ -58,7 +67,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-warning" style="width: 100%">SIMPAN</button>
+                            <button type="submit" class="btn btn-custom" style="width: 100%">SIMPAN</button>
                         </form>
                     </div>
                 </div>
