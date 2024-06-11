@@ -10,7 +10,7 @@
     <table id="pengaduanTable" class="table">
         <thead>
             <tr>
-                <th>No</th>
+                <th style="text-align: center;">No</th>
                 <th>Tanggal</th>
                 <th>Isi Laporan</th>
                 <th>Status</th>
@@ -20,7 +20,7 @@
         <tbody>
             @foreach($pengaduan as $k => $v)            
             <tr>
-                <td>{{ $k += 1 }}</td>
+                <td style="text-align: center;">{{ $k += 1 }}</td>
                 <td>{{ \Carbon\Carbon::parse($v->tgl_pengaduan)->format('d-M-Y') }}</td>
                 <td>{{ $v->isi_laporan }}</td>
                 <td>

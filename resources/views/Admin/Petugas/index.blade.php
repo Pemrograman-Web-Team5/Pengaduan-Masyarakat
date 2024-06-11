@@ -11,7 +11,7 @@
         <table id="petugasTable" class="table">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th style="text-align: center;">No</th>
                     <th>Nama Petugas</th>
                     <th>Username</th>
                     <th style="text-align: left;">Telp</th>
@@ -22,7 +22,7 @@
             <body>
                 @foreach ($petugas as $k => $v)
                     <tr>
-                        <td>{{ $k += 1 }}</td>
+                        <td style="text-align: center;">{{ $k += 1 }}</td>
                         <td>{{ $v->nama_petugas }}</td>
                         <td>{{ $v->username }}</td>
                         <td style="text-align: left;">{{ $v->telp }}</td> 
