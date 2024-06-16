@@ -85,55 +85,75 @@ class UserController extends Controller
 
     public function storePengaduan(Request $request)
     {
-        if (!Auth::guard('masyarakat')->user()) {
-            return redirect()->back()->with(['pesan' => 'Login dibutuhkan!'])->withInput();
-        }
-
-        $data = $request->all();
-
-        $validate = Validator::make($data, [
-            'isi_laporan' => ['required'],
+        // Validasi data input
+        $data = $request->validate([
+            'isi_laporan' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
 
-        if ($validate->fails()) {
-            return redirect()->back()->withInput()->withErrors($validate);
-        }
-
-        if ($request->file('foto')) {
+        // Penyimpanan foto 
+        if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('assets/pengaduan', 'public');
         }
 
-        date_default_timezone_set('Asia/Bangkok');
-
+        // Buat pengaduan baru
         $pengaduan = Pengaduan::create([
-            'tgl_pengaduan' => date('Y-m-d h:i:s'),
+            'tgl_pengaduan' => now(),
             'nik' => Auth::guard('masyarakat')->user()->nik,
             'isi_laporan' => $data['isi_laporan'],
-            'foto' => $data['foto'] ?? '',
+            'foto' => $data['foto'] ?? null, // memastikan foto disimpan jika ada
             'status' => '0',
         ]);
 
         if ($pengaduan) {
-            return redirect()->route('pekat.laporan', 'me')->with(['pengaduan' => 'Berhasil terkirim!', 'type' => 'success']);
+            return redirect()->route('pekat.laporan', 'me')
+                ->with(['pengaduan' => 'Berhasil terkirim!', 'type' => 'success']);
         } else {
-            return redirect()->back()->with(['pengaduan' => 'Gagal terkirim!', 'type' => 'danger']);
+            return redirect()->back()
+                ->with(['pengaduan' => 'Gagal terkirim!', 'type' => 'danger']);
         }
     }
 
     public function laporan($siapa = '')
     {
-        $terverifikasi = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->get()->count();
-        $proses = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'proses']])->get()->count();
-        $selesai = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'selesai']])->get()->count();
+        // Periksa apakah pengguna sudah login
+        if (!Auth::guard('masyarakat')->check()) {
+            return redirect()->route('pekat.index');
+        }
+
+        // Ambil user yang sedang login
+        $user = Auth::guard('masyarakat')->user();
+
+        // Ambil jumlah laporan berdasarkan status
+        $terverifikasi = Pengaduan::where('nik', $user->nik)
+            ->where('status', '!=', '0')
+            ->get()
+            ->count();
+
+        $proses = Pengaduan::where('nik', $user->nik)
+            ->where('status', 'proses')
+            ->get()
+            ->count();
+
+        $selesai = Pengaduan::where('nik', $user->nik)
+            ->where('status', 'selesai')
+            ->get()
+            ->count();
 
         $hitung = [$terverifikasi, $proses, $selesai];
 
+        // Ambil data pengaduan berdasarkan siapa yang mengakses (semua atau hanya laporan saya)
         if ($siapa == 'me') {
-            $pengaduan = Pengaduan::where('nik', Auth::guard('masyarakat')->user()->nik)->orderBy('tgl_pengaduan', 'desc')->get();
+            $pengaduan = Pengaduan::where('nik', $user->nik)
+                ->orderBy('tgl_pengaduan', 'desc')
+                ->get();
 
             return view('user.laporan', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
         } else {
-            $pengaduan = Pengaduan::where([['nik', '!=', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->orderBy('tgl_pengaduan', 'desc')->get();
+            $pengaduan = Pengaduan::where('nik', '!=', $user->nik)
+                ->where('status', '!=', '0')
+                ->orderBy('tgl_pengaduan', 'desc')
+                ->get();
 
             return view('user.laporan', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
         }

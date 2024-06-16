@@ -1,10 +1,16 @@
 @extends('layouts.user')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/landing.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
+    <style>
+        .jumlah-laporan {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 @endsection
 
-@section('title', 'PEKAT - Pengaduan Masyarakat')
+@section('title', 'SIAKAT')
 
 @section('content')
 {{-- Section Header --}}
@@ -91,8 +97,8 @@
 <div class="pengaduan mt-5">
     <div class="bg-purple">
         <div class="text-center">
-            <h5 class="medium text-white mt-3">JUMLAH LAPORAN SEKARANG</h5>
-            <h2 class="medium text-white">10</h2>
+            <h5 class="medium text-white mt-3">JUMLAH SEMUA LAPORAN SEKARANG</h5>
+            <span class="jumlah-laporan">{{ $selesai }}</span>           
         </div>
     </div>
 </div>

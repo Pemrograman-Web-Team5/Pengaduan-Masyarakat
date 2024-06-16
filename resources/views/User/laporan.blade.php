@@ -1,11 +1,18 @@
 @extends('layouts.user')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/landing.css') }}">
-<link rel="stylesheet" href="{{ asset('css/laporan.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/laporan.css') }}">
+    <style>
+        .gambar-lampiran {
+            width: 100%; /* Ubah ukuran lebar sesuai kebutuhan */
+            height: auto; /* Biarkan tinggi otomatis sesuai proporsi */
+            max-width: 400px; /* Maksimum lebar gambar jika perlu */
+        }
+    </style>
 @endsection
 
-@section('title', 'PEKAT - Pengaduan Masyarakat')
+@section('title', 'SIAKAT')
 
 @section('content')
 {{-- Section Header --}}
@@ -79,7 +86,7 @@
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 col">
             <div class="content content-bottom shadow">
                 <div>
-                    <img src="{{ asset('images/user_default.svg') }}" alt="user profile" class="photo">
+                    <img src="{{ asset('images/profil.png') }}" alt="user profile" class="photo">
                     <div class="self-align">
                         <h5><a style="color: #6a70fc" href="#">{{ Auth::guard('masyarakat')->user()->nama }}</a></h5>
                         <p class="text-dark">{{ Auth::guard('masyarakat')->user()->username }}</p>
@@ -122,7 +129,7 @@
         @foreach ($pengaduan as $k => $v)
         <div class="col-lg-8">
             <div class="laporan-top">
-                <img src="{{ asset('images/user_default.svg') }}" alt="profile" class="profile">
+                <img src="{{ asset('images/profil.png') }}" alt="profile" class="profile">
                 <div class="d-flex justify-content-between">
                     <div>
                         <p>{{ $v->user->nama }}</p>
@@ -163,7 +170,7 @@
 <div class="mt-5">
     <hr>
     <div class="text-center">
-        <p class="italic text-secondary">© 2021 Ihsanfrr • All rights reserved</p>
+        <p class="italic text-secondary">© 2024 Team 5</p>
     </div>
 </div>
 @endsection

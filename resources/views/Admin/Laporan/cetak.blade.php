@@ -12,7 +12,7 @@
 <body>
     <div class="text-center">
         <h5>Laporan Pengaduan Masyarakat</h5>
-        <h6>Team 5</h6>
+        <h6>RW 08 Kelurahan Tanggung</h6>
     </div>
     <div class="container">
         <table class="table">

@@ -7,10 +7,11 @@ use App\Http\Controllers\Admin\PengaduanController;
 use App\Http\Controllers\Admin\PetugasController;
 use App\Http\Controllers\Admin\MasyarakatController;
 use App\Http\Controllers\Admin\TanggapanController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [UserController::class, 'index'])->name('pekat.index');
+Route::get('/', [LandingPageController::class, 'index'])->name('pekat.index');
 
 Route::post('/login/auth', [UserController::class, 'login'])->name('pekat.login');
 
