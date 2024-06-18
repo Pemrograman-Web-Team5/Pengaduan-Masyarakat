@@ -25,6 +25,54 @@
             border: 1px solid #6a70fc;
             color: #fff;
         }
+        #sidebar {
+            position: fixed; /* Tetap di posisi saat discroll */
+            height: 100%; /* Tinggi maksimal */
+            width: 250px; /* Lebar sidebar */
+            top: 0; /* Posisi dari atas */
+            left: 0; /* Posisi dari kiri */
+            overflow-y: auto; /* Mengizinkan discroll jika konten lebih panjang */
+            background: #343a40; /* Warna background sidebar */
+            color: #fff; /* Warna teks */
+            z-index: 1000; /* Layering di atas konten */
+            transition: all 0.3s ease; /* Animasi transisi */
+        }
+
+#sidebar.active {
+    margin-left: -250px; /* Menyembunyikan sidebar saat tidak aktif */
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background: #343a40;
+}
+
+.sidebar-header h3 {
+    color: #fff;
+}
+
+.list-unstyled {
+    padding: 20px;
+}
+
+.list-unstyled li {
+    padding: 10px 0;
+}
+
+.list-unstyled li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.list-unstyled li a:hover {
+    color: #6a70fc; /* Warna hover untuk link di sidebar */
+}
+
+#content {
+    margin-left: 250px; /* Mengompensasi lebar sidebar */
+    transition: all 0.3s ease; /* Animasi transisi */
+}
     </style>
 
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">

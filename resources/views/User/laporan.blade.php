@@ -88,7 +88,7 @@
                 <div>
                     <img src="{{ asset('images/profil.png') }}" alt="user profile" class="photo">
                     <div class="self-align">
-                        <h5><a style="color: #6a70fc" href="#">{{ Auth::guard('masyarakat')->user()->nama }}</a></h5>
+                        <h5><a style="color: #000000" href="#">{{ Auth::guard('masyarakat')->user()->nama }}</a></h5>
                         <p class="text-dark">{{ Auth::guard('masyarakat')->user()->username }}</p>
                     </div>
                     <div class="row text-center">
