@@ -13,6 +13,12 @@
             color: #d30000;
             padding-top: 20px;
         }
+        .status{
+            padding-top: 20px;
+        }
+        .self-align{
+            padding-top: 10px;
+        }
     </style>
 @endsection
 
@@ -59,6 +65,11 @@
         </div>
     </nav>
 
+    <div class="text-center">
+        <h2 class="medium text-white mt-3">Layanan Pengaduan Masyarakat</h2>
+        <p class="italic text-white mb-5">Sampaikan laporan Anda langsung kepada yang pemerintah berwenang</p>
+    </div>
+
 </section>
 {{-- Section Card --}}
 <div class="container">
@@ -95,7 +106,7 @@
                         <h5><a style="color: #000000" href="#">{{ Auth::guard('masyarakat')->user()->nama }}</a></h5>
                         <p class="text-dark">{{ Auth::guard('masyarakat')->user()->username }}</p>
                     </div>
-                    <div class="row text-center">
+                    <div class="row text-center status">
                         <div class="col">
                             <p class="italic mb-0">Terverifikasi</p>
                             <div class="text-center">

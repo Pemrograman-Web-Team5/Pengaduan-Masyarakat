@@ -5,7 +5,8 @@
     <style>
         .jumlah-laporan {
             color: white;
-            font-size: 20px;
+            font-size: 50px;
+            font-weight: 800;
         }
     </style>
 @endsection
@@ -96,9 +97,15 @@
 {{-- Section Hitung Pengaduan --}}
 <div class="pengaduan mt-5">
     <div class="bg-purple">
-        <div class="text-center">
-            <h5 class="medium text-white mt-3">JUMLAH SEMUA LAPORAN SEKARANG</h5>
-            <span class="jumlah-laporan">{{ $selesai }}</span>           
+        <div class="text-center d-flex justify-content-around">
+            <div class="text-center">
+                <h5 class="medium text-white mt-3">JUMLAH LAPORAN DIPROSES</h5>
+                <span class="jumlah-laporan">{{ $proses }}</span>
+            </div>
+            <div class="text-center">
+                <h5 class="medium text-white mt-3">JUMLAH LAPORAN SELESAI</h5>
+                <span class="jumlah-laporan">{{ $selesai }}</span>
+            </div>
         </div>
     </div>
 </div>

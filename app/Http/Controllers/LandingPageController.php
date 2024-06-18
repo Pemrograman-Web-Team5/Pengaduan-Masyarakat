@@ -9,7 +9,8 @@ class LandingPageController extends Controller
 {
     public function index()
     {
+        $proses = Pengaduan::where('status', 'proses')->count();
         $selesai = Pengaduan::where('status', 'selesai')->count();
-        return view('user.landing', ['selesai' => $selesai]);
+        return view('user.landing', ['proses' => $proses, 'selesai' => $selesai]);
     }
 }
