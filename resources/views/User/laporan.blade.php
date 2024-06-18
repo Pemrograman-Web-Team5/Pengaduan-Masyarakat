@@ -9,6 +9,10 @@
             height: auto; /* Biarkan tinggi otomatis sesuai proporsi */
             max-width: 400px; /* Maksimum lebar gambar jika perlu */
         }
+        .tanggapan{
+            color: #d30000;
+            padding-top: 20px;
+        }
     </style>
 @endsection
 
@@ -126,7 +130,7 @@
             </a>
             <hr>
         </div>
-        @foreach ($pengaduan as $k => $v)
+        @foreach ($pengaduan as $v)
         <div class="col-lg-8">
             <div class="laporan-top">
                 <img src="{{ asset('images/profil.png') }}" alt="profile" class="profile">
@@ -157,7 +161,7 @@
                 <img src="{{ Storage::url($v->foto) }}" alt="{{ 'Gambar '.$v->judul_laporan }}" class="gambar-lampiran">
                 @endif
                 @if ($v->tanggapan != null)
-                <p class="mt-3 mb-1">{{ '*Tanggapan dari '. $v->tanggapan->petugas->nama_petugas }}</p>
+                <p class="mt-3 mb-1 tanggapan">{{ '*Tanggapan dari '. $v->tanggapan->petugas->nama_petugas }}</p>
                 <p class="light">{{ $v->tanggapan->tanggapan }}</p>
                 @endif
             </div>
