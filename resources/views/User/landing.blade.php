@@ -56,7 +56,7 @@
 
     <div class="text-center">
         <h2 class="medium text-white mt-3">Layanan Pengaduan Masyarakat</h2>
-        <p class="italic text-white mb-5">Sampaikan laporan Anda langsung kepada yang pemerintah berwenang</p>
+        <p class="italic text-white mb-5">Sampaikan laporan Anda langsung kepada pemerintah yang berwenang</p>
     </div>
 
     <div class="wave wave1"></div>
