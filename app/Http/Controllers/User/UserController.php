@@ -85,6 +85,11 @@ class UserController extends Controller
 
     public function storePengaduan(Request $request)
     {
+        //memerikasa apakah user sudah login
+        if (!Auth::guard('masyarakat')->check()) { // Perubahan di sini
+            return redirect()->route('pekat.index')->with(['pesan' => 'Silakan login terlebih dahulu']); // Perubahan di sini
+        }
+
         // Validasi data input
         $data = $request->validate([
             'isi_laporan' => 'required',
