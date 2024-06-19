@@ -43,20 +43,20 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header bg-secondary">Petugas</div>
+                <div class="card-header bg-info">Masyarakat</div>
                 <div class="card-body">
                     <div class="text-center">
-                        {{ $petugas }}
+                        {{ $masyarakat }}
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header bg-info">Masyarakat</div>
+                <div class="card-header bg-danger">Pengaduan Pending</div>
                 <div class="card-body">
                     <div class="text-center">
-                        {{ $masyarakat }}
+                        {{ $pending }}
                     </div>
                 </div>
             </div>
