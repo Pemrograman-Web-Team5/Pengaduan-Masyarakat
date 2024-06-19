@@ -22,6 +22,16 @@
         font-size: 16px !important;
         font-family: "Poppins", sans-serif !important;
     }
+    .card{
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .card-header{
+        font-weight: 800;        
+    }  
+    .text-center{
+        font-size: 30px;
+        font-weight: 500;
+    }  
 </style>
 @endsection
 
@@ -33,7 +43,7 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header">Petugas</div>
+                <div class="card-header bg-secondary">Petugas</div>
                 <div class="card-body">
                     <div class="text-center">
                         {{ $petugas }}
@@ -43,7 +53,7 @@
         </div>
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header">Masyarakat</div>
+                <div class="card-header bg-info">Masyarakat</div>
                 <div class="card-body">
                     <div class="text-center">
                         {{ $masyarakat }}
@@ -53,7 +63,7 @@
         </div>
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header">Pengaduan Proses</div>
+                <div class="card-header bg-warning">Pengaduan Proses</div>
                 <div class="card-body">
                     <div class="text-center">
                         {{ $proses }}
@@ -63,7 +73,7 @@
         </div>
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header">Pengaduan Selesai</div>
+                <div class="card-header bg-success">Pengaduan Selesai</div>
                 <div class="card-body">
                     <div class="text-center">
                         {{ $selesai }}

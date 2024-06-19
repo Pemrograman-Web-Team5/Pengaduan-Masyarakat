@@ -1,5 +1,13 @@
 @extends('layouts.admin')
 
+@section('css')
+<style>
+    .card{
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+@endsection
+
 @section('title', 'Halaman Laporan')
 
 @section('header', 'Laporan Pengaduan')
